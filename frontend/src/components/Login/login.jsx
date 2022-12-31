@@ -18,7 +18,7 @@ const Login = () => {
           <input type="password" placeholder="Password" />
           <button style={{"color":"white","fontSize":"20px"}}>Login</button>
           <p>
-            Need an Account?<Link>Sign up</Link>
+            Need an Account?<Link to="/signup">Sign up</Link>
           </p>
           </form>
         </div>
