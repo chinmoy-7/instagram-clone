@@ -46,7 +46,7 @@ router.post("/login",async (req,res)=>{
         const {email,password}=req.body;
         const user = await signup.find({email:req.body.email});
         if(user.length==0){
-            return res.status(404).json({
+            return res.json({
                 status:"failed",
                 message:"No user Found"
             })
@@ -59,12 +59,12 @@ router.post("/login",async (req,res)=>{
                     message:"Logged in",    
                     token
                 })
-            }else{
-                res.status(404).json({
+            }
+                return res.json({
                     status:"failed",
                     message:"password didn't match"
                 })
-            }
+            
         })
     }catch(e){
         res.status(400).json({
