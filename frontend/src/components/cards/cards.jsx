@@ -1,6 +1,6 @@
 import React from "react";
 import home from '../../imgs/home.png'
-import test from '../../imgs/test.JPG'
+// import test from '../../imgs/test.JPG'
 export default function Cards() {
   return (
     <>
