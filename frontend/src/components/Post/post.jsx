@@ -1,16 +1,21 @@
-import { useContext } from "react";
-import AuthContext from "../../context/AuthContext";
-
-const Post = ()=>{
-    const {setIsLoggedIn}=useContext(AuthContext)
-    const handleLogout=()=>{
-        window.localStorage.clear();
-        setIsLoggedIn(false);
-    }
-    return(
-        <>
-            {/* <button onClick={handleLogout}>Logout</button> */}
-        </>
-    )
-}
+import "./postBig.css";
+import "./post.css";
+import Sidebar from "../sidebar/sidebar";
+import Cards from "../cards/cards";
+const Post = () => {
+  return (
+    <>
+      <div className="post-container">
+        <div className="sidenav">
+          <Sidebar />
+        </div>
+        <div className="feed">
+          <div className="cards">
+                <Cards/>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 export default Post;
