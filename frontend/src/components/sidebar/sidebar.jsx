@@ -8,12 +8,25 @@ import search from "../../imgs/search.png"
 import explore from "../../imgs/explore.png"
 import message from "../../imgs/messages.png"
 import profile from '../../imgs/profile.png'
+import { useAuth } from "../../context/AuthContext";
 export default function Sidebar() {
+  const auth = useAuth();
+  console.log(auth.nav)
   const { setIsLoggedIn } = useContext(AuthContext);
   const handleLogout = () => {
     window.localStorage.clear();
     setIsLoggedIn(false);
   };
+  const handleOption=(option)=>{
+    if(option=="profile"){
+      auth.setNav("profile")
+    }else if(option=="home"){
+      auth.setNav("home")
+    }else{
+      auth.setNav("createPost")
+    }
+
+  }
   return (
     <>
       <div className="sidenav-top">
@@ -21,7 +34,7 @@ export default function Sidebar() {
       </div>
       <div className="sidenav-mid">
         <Link>
-          <div className="sidenav-icon">
+          <div className="sidenav-icon" onClick={(e)=>{handleOption("home")}}>
             <img src={home} alt="" />
             <h2>Home</h2>
           </div>
@@ -39,15 +52,15 @@ export default function Sidebar() {
           </div>
         </Link>
         <Link>
-          <div className="sidenav-icon">
+          <div className="sidenav-icon" onClick={()=>{handleOption("createPost")}}>
             <img src={message} alt="" />
-            <h2>Message</h2>
+            <h2>Post</h2>
           </div>
         </Link>
-        <Link>
-          <div className="sidenav-icon">
+        <Link >
+          <div className="sidenav-icon" onClick={(e)=>{handleOption("profile")}}>
             <img src={profile} alt="" />
-            <h2>Profile</h2>
+            <h2 >Profile</h2>
           </div>
         </Link>
       </div>

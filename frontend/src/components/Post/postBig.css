@@ -129,9 +129,9 @@
         /* background-color: red; */
     }
     .box-bottom{
-        min-height: 166px;
+        max-height: 166px;
         width: 100%;
-        background-color: green;
+        background-color: black;
     }
     .box-top-left{
         color: white;
@@ -164,6 +164,28 @@
     .box-mid>img{
         height: 400px;
         width: 100%;
-
     }
+    .like-comment{
+        display: flex;
+        justify-content: flex-start;
+        height: 40px;
+        /* background-color: blue; */
+    }
+    .like-comment>img{
+        margin-left: 10px;
+        max-height: 35px;
+        margin-top:5px ;
+    }
+    .footer-content{
+        height: 126px;
+        margin-left: 10px;
+        margin-top:5px ;
+        width: 90%;
+        color:white;
+        /* background-color: blue;   */
+    }
+    .footer-content>p{
+        margin-top:5px;
+    }
+
 }

@@ -7,6 +7,7 @@ const AuthContext  = createContext();
 
 export const AuthContextprovider=({children})=>{
     const navigate=useNavigate();
+    const [nav,setNav]=useState("home")
     const [loginData,setLoginData]=useState({email:"",password:""})
     const [isLoggedIn,setIsLoggedIn]=useState(false);
     const handleLogin=async (e)=>{
@@ -23,7 +24,7 @@ export const AuthContextprovider=({children})=>{
         navigate("/post",{replace:true})
     }
     return(
-        <AuthContext.Provider value={{setLoginData,handleLogin,loginData,isLoggedIn,setIsLoggedIn   }}>
+        <AuthContext.Provider value={{setLoginData,handleLogin,loginData,isLoggedIn,setIsLoggedIn,nav,setNav}}>
             {children}
         </AuthContext.Provider>
     )

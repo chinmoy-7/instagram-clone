@@ -1,0 +1,14 @@
+.createPost-container{
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    background-color: rgb(165, 126, 126);
+    top:25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.createPost-container>input{
+    /* background-color: blue; */
+    
+}
