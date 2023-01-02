@@ -11,9 +11,10 @@ const Post = () => {
     const auth = useAuth();
     useEffect(()=>{
       getUserDetails()
-      auth.setIsLoggedIn(true);
+      // auth.setIsLoggedIn(true);
 
     },[auth.nav])
+
     const getUserDetails=async ()=>{
       const headers = {"authorization":localStorage.getItem("token")}
       console.log(headers)

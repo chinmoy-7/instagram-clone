@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createContext } from "react";
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
@@ -10,6 +10,13 @@ export const AuthContextprovider=({children})=>{
     const [nav,setNav]=useState("home")
     const [loginData,setLoginData]=useState({email:"",password:""})
     const [isLoggedIn,setIsLoggedIn]=useState(false);
+    // useEffect(()=>{
+    //     console.log("Outside test")
+    //     if(localStorage.getItem("token")){
+    //       console.log("test")
+    //       setIsLoggedIn(true);
+    //     }
+    //   },[])
     const handleLogin=async (e)=>{
         e.preventDefault()
         setIsLoggedIn(true)

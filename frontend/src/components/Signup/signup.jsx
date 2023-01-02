@@ -13,6 +13,27 @@ const Signup = ()=>{
         setLoading(true)
         const user = await axios.post("http://localhost:3004/signup",data);
         setLoading(false);
+        // console.log(user.data);
+
+
+        if(data.email==" "||!data.email.includes("@")){
+            alert("Enter a valid email")
+            return
+        }else if(data.fullname==""){
+            alert("Full name field empty");
+            return
+        }else if(data.username==""){
+            alert("Username Field Empty");
+            return
+        }else if(data.password.length<8||data.password.length>16){
+            alert("Password length should be between 8 and 16 characters");
+            return;
+        }
+
+        if(user.data.status=="failed"){
+            alert("User Already Exists");
+            return;
+        }
         navigate("/");
     }
     return(

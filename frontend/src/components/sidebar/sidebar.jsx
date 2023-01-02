@@ -11,7 +11,7 @@ import profile from '../../imgs/profile.png'
 import { useAuth } from "../../context/AuthContext";
 export default function Sidebar() {
   const auth = useAuth();
-  console.log(auth.nav)
+  // console.log(auth.nav)
   const { setIsLoggedIn } = useContext(AuthContext);
   const handleLogout = () => {
     window.localStorage.clear();

@@ -9,14 +9,14 @@ router.post("/signup",async (req,res)=>{
         const {email,fullname,username,password}=req.body;
         const check = await signup.find({email:req.body.email})
         if(check.length!=0){
-            return res.status(400).json({
+            return res.json({
                 status:"failed",
                 message:"User already Exists"
             })
         }
         bcrypt.hash(password,10,async (err,hash)=>{
             if(err){
-                return res.status(400).json({
+                return res.json({
                     status:"failed",
                     message:err.message
                 })
@@ -67,7 +67,7 @@ router.post("/login",async (req,res)=>{
             
         })
     }catch(e){
-        res.status(400).json({
+        res.json({
             status:"failed",
             message:e.message
         })

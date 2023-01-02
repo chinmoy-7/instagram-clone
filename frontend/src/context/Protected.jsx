@@ -3,7 +3,7 @@ import {Navigate} from 'react-router-dom'
 import { useAuth } from './AuthContext'
 export default function Protected({children}) {
     const auth = useAuth();
-    if(!auth.isLoggedIn){
+    if(!localStorage.getItem("token")){
         return <Navigate to ="/"/>
     }
   return children

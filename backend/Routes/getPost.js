@@ -17,6 +17,8 @@ router.get("/api/user",Auth,async (req,res)=>{
         })
     }
 })
+
+//Upload a post
 router.post("/upload",Auth,async (req,res)=>{
     try{
         const user = await signup.find({_id:res.user_id})
@@ -39,6 +41,20 @@ router.post("/upload",Auth,async (req,res)=>{
         })
     }
 })
+
+//Get all The Posts
+router.get("/api/post",Auth,async (req,res)=>{
+    try{
+        const allPosts = await posts.find({userId:res.user_id})
+        res.json(allPosts)
+    }catch(e){
+        res.json({
+            status:"failed",
+            message:e.message
+        })
+    }
+})
+
 
 
 module.exports = router
