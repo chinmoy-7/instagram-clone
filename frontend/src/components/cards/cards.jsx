@@ -36,7 +36,7 @@ export default function Cards() {
   }
   const handleDelete = async (id)=>{
     const headers = {"authorization":localStorage.getItem("token")};
-    const deletedPost = await axios.delete(`https://instagram-backend-pngn.onrender.com/${id}`,{headers})
+    const deletedPost = await axios.delete(`https://instagram-backend-pngn.onrender.com/api/delete/${id}`,{headers})
     // console.log(deletedPost.data.status)
     setDeleted(!deleted)
     setDel(false)

@@ -27,13 +27,13 @@ router.post("/signup",async (req,res)=>{
                 username:username,
                 password:hash
             })
-            res.status(200).json({
+            res.json({
                 status:"success",
                 user
             })
         })
     }catch(e){
-        res.status(400).json({
+        res.json({
             status:"failed",
             message:e.message
         })
