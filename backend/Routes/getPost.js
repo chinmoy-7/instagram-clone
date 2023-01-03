@@ -55,6 +55,22 @@ router.get("/api/post",Auth,async (req,res)=>{
     }
 })
 
+//Delete a post
+router.delete("/api/delete/:id",Auth,async (req,res)=>{
+    try{
+        const {id}=req.params
+        await posts.deleteOne({_id:id})
+        res.json({
+            status:"success",
+            message:"Post successfully deleted"
+        })
+    }catch(e){
+        res.json({
+            status:"failed",
+            message:e.message
+        })
+    }
+})
 
 
 module.exports = router

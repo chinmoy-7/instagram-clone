@@ -32,7 +32,7 @@ const Post = () => {
     }
     const getUserDetails=async ()=>{
       const headers = {"authorization":localStorage.getItem("token")}
-      console.log(headers)
+      // console.log(headers)
       axios.get("http://localhost:3004/api/user",{headers})
     }
   return (

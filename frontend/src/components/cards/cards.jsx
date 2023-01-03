@@ -4,22 +4,28 @@ import like from "../../imgs/like.png";
 import comment from "../../imgs/comment.png";
 import share from "../../imgs/share.png";
 import axios from "axios";
+import deleteImg from "../../imgs/delete.png"
+import { useAuth } from "../../context/AuthContext";
 import { useEffect } from "react";
 import "./cardBig.css"  
 import "./card.css"  
+
 // import test from '../../imgs/test.JPG'
 export default function Cards() {
+  const auth = useAuth();
   const [loading,setLoading]=useState(false);
+  const [deleted,setDeleted]=useState(false);
+  const [del,setDel]=useState(false)
   const [allPosts,setAllPosts]=useState();
   const [available,setAvailable]=useState(true)
   useEffect(()=>{
     getAllPost();
-  },[])
+  },[deleted])
   const getAllPost=async ()=>{
     setLoading(true)
     const headers={"authorization":localStorage.getItem("token")}
     const posts=await axios.get("http://localhost:3004/api/post",{headers});
-    console.log(posts.data.length,"test")
+    // console.log(posts.data.length,"test")
     if(posts.data.length==0){
       setAvailable(false)
     }else
@@ -28,11 +34,21 @@ export default function Cards() {
     setLoading(false)
 
   }
+  const handleDelete = async (id)=>{
+    const headers = {"authorization":localStorage.getItem("token")};
+    const deletedPost = await axios.delete(`http://localhost:3004/api/delete/${id}`,{headers})
+    // console.log(deletedPost.data.status)
+    setDeleted(!deleted)
+    setDel(false)
+    auth.setNav("createPost");
+  }
   return (
     <>
     {loading&&<div>Loading ....</div>}
+
     {!available&&<div><h1 style={{"color":"white"}}>No data available</h1></div>}
       {!loading&&allPosts?.map((item,id)=>{
+        // console.log(item._id)
         return(
             <div className="box" key={id}>
         <div className="box-top">
@@ -41,6 +57,16 @@ export default function Cards() {
             <h4>{item.username}</h4>
           </div>
           <div className="box-top-right">
+
+          <img onClick={()=>{setDel(!del)}} src={deleteImg}/>
+          {del&&<div className="del-dialog">
+            <h2>Are you Sure?</h2>
+            <div className="del-confirm">
+            <button onClick={()=>{setDel(false)}}>Cancel</button>
+            <button onClick={()=>{handleDelete(item._id)}}>Yes</button>
+            </div>
+          </div>}
+
             <h2>...</h2>
           </div>
         </div>

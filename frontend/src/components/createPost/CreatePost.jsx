@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import './createPostBig.css'
 import Filebase64 from 'react-file-base64'
 import axios from 'axios'
 import { useAuth } from '../../context/AuthContext'
+import './createPostBig.css'
+import './createPost.css'
 export default function CreatePost() {
   const auth=useAuth();
   const [loading,setLoading]=useState(false)
