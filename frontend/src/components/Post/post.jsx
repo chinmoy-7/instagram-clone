@@ -33,7 +33,7 @@ const Post = () => {
     const getUserDetails=async ()=>{
       const headers = {"authorization":localStorage.getItem("token")}
       // console.log(headers)
-      axios.get("https://instagram-backend-pngn.onrender.com/user",{headers})
+      await axios.get("https://instagram-backend-pngn.onrender.com/api/user",{headers})
     }
   return (
     <>

@@ -15,9 +15,9 @@ export default function CreatePost() {
     const headers = {"authorization":localStorage.getItem("token")}
     const uploaded=await axios.post("https://instagram-backend-pngn.onrender.com/upload",{img,description},{headers})
     setLoading(false);
-    if(uploaded.data.status=="success"){
+    // if(uploaded.data.status=="success"){
       auth.setNav("home");
-    }
+    // }
   }
   return (
     <div className="createPost-container">

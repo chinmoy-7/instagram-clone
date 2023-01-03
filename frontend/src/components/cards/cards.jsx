@@ -24,8 +24,8 @@ export default function Cards() {
   const getAllPost=async ()=>{
     setLoading(true)
     const headers={"authorization":localStorage.getItem("token")}
-    const posts=await axios.get("https://instagram-backend-pngn.onrender.com/post",{headers});
-    // console.log(posts.data.length,"test")
+    const posts=await axios.get("https://instagram-backend-pngn.onrender.com/api/post",{headers});
+    console.log(posts.data.length,"test")
     if(posts.data.length==0){
       setAvailable(false)
     }else
