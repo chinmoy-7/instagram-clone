@@ -20,7 +20,7 @@ export const AuthContextprovider=({children})=>{
     const handleLogin=async (e)=>{
         e.preventDefault()
         setIsLoggedIn(true)
-        const user = await axios.post("http://localhost:3004/login",loginData)
+        const user = await axios.post("https://instagram-backend-pngn.onrender.com/login",loginData)
         // console.log(user.data.status)
         if(user.data.status!="success"){
             setIsLoggedIn(false)

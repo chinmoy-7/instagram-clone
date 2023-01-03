@@ -11,7 +11,7 @@ const Signup = ()=>{
     const handleSignup=async (e)=>{
         e.preventDefault()
         setLoading(true)
-        const user = await axios.post("http://localhost:3004/signup",data);
+        const user = await axios.post("https://instagram-backend-pngn.onrender.com/signup",data);
         setLoading(false);
         // console.log(user.data);
 
