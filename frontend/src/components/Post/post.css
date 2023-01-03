@@ -2,4 +2,20 @@
     .sidenav{
         display: none;
     }
+    .post-button{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .post-button>button{
+        width: 20%;
+        border: 0px;
+        margin-right: 10px;
+        background-color: lightblue;
+        height: 40px;
+        color:black;
+        font-size: 18px;
+        font-weight: 600;
+
+    }
 }

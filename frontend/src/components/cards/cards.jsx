@@ -4,7 +4,9 @@ import like from "../../imgs/like.png";
 import comment from "../../imgs/comment.png";
 import share from "../../imgs/share.png";
 import axios from "axios";
-import { useEffect } from "react";  
+import { useEffect } from "react";
+import "./cardBig.css"  
+import "./card.css"  
 // import test from '../../imgs/test.JPG'
 export default function Cards() {
   const [loading,setLoading]=useState(false);

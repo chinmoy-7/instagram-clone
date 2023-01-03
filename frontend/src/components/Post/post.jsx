@@ -14,7 +14,22 @@ const Post = () => {
       // auth.setIsLoggedIn(true);
 
     },[auth.nav])
-
+    const handleNav = (option)=>{
+        if(option=="createPost"){
+          auth.setNav("createPost");
+          return;
+        }else if(option=="home"){
+          auth.setNav("home");
+          return;
+        }else if(option=="profile"){
+          auth.setNav("profile");
+          return;
+        }
+    }
+    const handleLogout=  ()=>{
+      window.localStorage.clear();
+      auth.setIsLoggedIn(false);
+    }
     const getUserDetails=async ()=>{
       const headers = {"authorization":localStorage.getItem("token")}
       console.log(headers)
@@ -27,12 +42,16 @@ const Post = () => {
           <Sidebar />
         </div>
         <div className="feed">
-
+              <div className="post-button">
+                <button onClick={(e)=>{handleNav("createPost")}}>Post</button>
+                <button onClick={(e)=>{handleNav("home")}}>Home</button>
+                <button onClick={(e)=>{handleNav("profile")}}>Profile</button>
+                <button onClick={handleLogout}>Logout</button>
+              </div>
           <div className="cards">
                 {auth.nav=="home"&&<Cards/>}
                 {auth.nav=="profile"&&<Profile/>}
                 {auth.nav=="createPost"&&<CreatePost/>}
-
           </div>
         </div>
       </div>

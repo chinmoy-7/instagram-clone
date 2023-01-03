@@ -1,0 +1,11 @@
+@media only screen and (max-width: 600px) {
+    .post-container{
+        min-height: 100vh;
+        background-color: rgb(99, 91, 91);
+    }
+  .box {
+    max-height: 100%;
+    max-width: 100%;
+   
+  }
+}
